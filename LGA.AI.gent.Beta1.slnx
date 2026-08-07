@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="LGA.AI/LGA.AI.csproj" />
+  <Project Path="LGA.Core/LGA.Core.csproj" />
+  <Project Path="LGA.Data/LGA.Data.csproj" />
+  <Project Path="LGA.Desktop/LGA.Desktop.csproj" />
+</Solution>
