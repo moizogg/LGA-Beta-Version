@@ -1,4 +1,4 @@
-﻿using LGA.Core.Models;
+using LGA.Core.Models;
 using LGA.Core.Workflow;
 using System;
 using System.Collections.Generic;
@@ -10,57 +10,29 @@ namespace LGA.Desktop.Services
 {
     public class AgentExecutionService
     {
+        private readonly WorkflowEngine _workflowEngine;
 
-
-        private readonly WorkflowEngine
-            _workflowEngine;
-
-
-
-        public AgentExecutionService(
-            WorkflowEngine workflowEngine
-        )
+        public AgentExecutionService() : this(new WorkflowEngine())
         {
-
-            _workflowEngine =
-                workflowEngine;
-
         }
 
-
-
+        public AgentExecutionService(WorkflowEngine workflowEngine)
+        {
+            _workflowEngine = workflowEngine;
+        }
 
         public async Task ExecuteLeadAnalysis()
         {
+            var lead = new Lead
+            {
+                Name = "Demo Customer",
+                Company = "Sample Company",
+                Email = "customer@test.com"
+            };
 
+            var context = new AgentContext(lead);
 
-            var lead =
-                new Lead
-                {
-
-                    Name =
-                    "Demo Customer",
-
-
-                    Company =
-                    "Sample Company",
-
-
-                    Email =
-                    "customer@test.com"
-
-                };
-
-
-
-            await _workflowEngine
-                .ExecuteAsync(
-                    lead
-                );
-
-
+            await _workflowEngine.ExecuteAsync(context);
         }
-
-
     }
 }

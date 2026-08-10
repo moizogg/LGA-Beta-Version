@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LGA.Desktop.Services;
 using System;
@@ -15,30 +15,22 @@ namespace LGA.Desktop.ViewModels
         private string userName = "Cristian Flores"; //Temp
         [ObservableProperty]
         private string welcomeMessage = "Welcome to LGA AI Agent Platform";
+
+        private readonly AgentExecutionService _agentService;
+
+        public DashboardViewModel() : this(new AgentExecutionService())
+        {
+        }
+
+        public DashboardViewModel(AgentExecutionService agentService)
+        {
+            _agentService = agentService;
+        }
+
         [RelayCommand]
         private async Task RunAgent()
         {
-
-
-            await _agentService
-                .ExecuteLeadAnalysis();
-
-
+            await _agentService.ExecuteLeadAnalysis();
         }
-        private readonly AgentExecutionService
-        _agentService;
-
-
-
-        public DashboardViewModel(
-            AgentExecutionService agentService
-        )
-        {
-
-            _agentService =
-                agentService;
-
-        }
-
     }
 }
