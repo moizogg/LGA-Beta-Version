@@ -1,4 +1,5 @@
-﻿using LGA.Data.Context;
+using Microsoft.EntityFrameworkCore;
+using LGA.Data.Context;
 using LGA.Data.Entities;
 using System;
 using System.Collections.Generic;
