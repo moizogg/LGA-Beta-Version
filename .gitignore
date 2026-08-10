@@ -1,0 +1,13 @@
+## Visual Studio / .NET build outputs
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Publish / Artifact output
+publish/
+
+## Release Folder
+# Beta_v2_Release/
